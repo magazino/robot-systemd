@@ -1,0 +1,15 @@
+Source: robot-systemd
+Section: misc
+Priority: optional
+Maintainer: Markus Grimm <grimm@magazino.eu>
+Build-Depends: debhelper-compat (= 12)
+Standards-Version: 4.5.0
+Homepage: https://github.com/magazino/robot-systemd
+Vcs-Git: https://github.com/magazino/robot-systemd.git
+Vcs-Browser: https://github.com/magazino/robot-systemd
+
+Package: robot-systemd
+Architecture: all
+Depends: ${misc:Depends}, ros-noetic-systemd-ros
+Description: Sample systemd services for a robot.
+ This example package contains systemd services for a robot.

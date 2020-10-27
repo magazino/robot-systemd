@@ -1,0 +1,19 @@
+#!/bin/sh -e
+
+. /etc/ros/robot-bringup
+
+export ROS_DISTRO=noetic
+export LD_LIBRARY_PATH="/opt/ros/$ROS_DISTRO/lib"
+export PYTHONPATH="/opt/ros/$ROS_DISTRO/lib/python3/dist-packages"
+export ROS_PACKAGE_PATH="/opt/ros/$ROS_DISTRO/share"
+export ROS_MASTER_URI="http://$HOSTNAME:11311"
+export PATH="$PATH:/opt/ros/$ROS_DISTRO/lib/systemd_ros"
+export ROS_ROOT="/opt/ros/$ROS_DISTRO/share/ros"
+export ROS_VERSION=1
+export ROS_ETC_DIR="/opt/ros/$ROS_DISTRO/etc/ros"
+
+LAUNCH_FILE="/opt/ros/$ROS_DISTRO/share/$PACKAGE/launch/$LAUNCH_FILE"
+
+generate-services "$SERVICE" "$LAUNCH_FILE" "$3" --user "$USER" --group "$GROUP" --extra-config="/etc/ros/robot-bringup-extras.yaml" > "/$3/$SERVICE-generator.out" 2>&1
+mkdir -p "$3/multi-user.target.wants/"
+ln -s "$3/$SERVICE.service" "$3/multi-user.target.wants/"

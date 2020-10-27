@@ -1,0 +1,5 @@
+PACKAGE=robot_bringup
+LAUNCH_FILE=robot.launch
+SERVICE=robot-bringup
+USER=robot
+GROUP=robot
