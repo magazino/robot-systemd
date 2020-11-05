@@ -3,6 +3,7 @@
 . /etc/ros/robot-bringup
 
 CATKIN_WS="/home/$USER/catkin_ws/install"
+HOSTNAME="$(hostname)"
 
 export ROS_DISTRO=noetic
 export LD_LIBRARY_PATH="/opt/ros/$ROS_DISTRO/lib"
@@ -13,6 +14,7 @@ export PATH="$PATH:$CATKIN_WS/bin:/opt/ros/$ROS_DISTRO/lib/systemd_ros"
 export ROS_ROOT="/opt/ros/$ROS_DISTRO/share/ros"
 export ROS_VERSION=1
 export ROS_ETC_DIR="/opt/ros/$ROS_DISTRO/etc/ros"
+export HOSTNAME
 
 LOCAL_LAUNCH_FILE="$CATKIN_WS/share/$PACKAGE/launch/$LAUNCH_FILE"
 LAUNCH_FILE="/opt/ros/$ROS_DISTRO/share/$PACKAGE/launch/$LAUNCH_FILE"
